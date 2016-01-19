@@ -8,21 +8,20 @@ use Zend\Permissions\Acl\Acl;
 use Zend\Permissions\Acl\Resource\GenericResource as Resource;
 use Spark\Project\DataMapper\UserMapper;
 use Spark\Directory;
-use Spark\Handler\DispatchHandler;
 use FastRoute;
 use FastRoute\RouteCollector;
 
 class AclMiddleware
 {
 
-    protected $fpdo;
+    protected $userMapper;
 
     public function __construct(
-        \FluentPDO $fpdo,
+        UserMapper $userMapper,
         Acl $acl,
         Directory $directory
     ) {
-        $this->fpdo = $fpdo;
+        $this->userMapper = $userMapper;
         $this->acl = $acl;
         $this->directory = $directory;
 
@@ -51,11 +50,8 @@ class AclMiddleware
     }
 
     /**
-     * Sort of a hacky method but I wanted to be able to get the domain class
-     * name from this middleware and couldn't find a super elegant way to do it
-     * Previously I didn't have the middleware file and just hid all the acl
-     * logic in an abstract all of the domains extended. At least now there is
-     * more of a separation of concerns
+     * todo: this shouldn't be a concern of this class and should be moved
+     * either to the dispatcher or a somewhere more practical
      *
      * @param unknown $request
      */
@@ -82,9 +78,7 @@ class AclMiddleware
      */
     protected function checkAcl($userId, $resource)
     {
-        $userMapper = new UserMapper($this->fpdo);
-
-        $userRole = $userMapper
+        $userRole = $this->userMapper
             ->find($userId)
             ->getRole();
 
