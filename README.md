@@ -5,7 +5,6 @@
 - [X] As an employee, I want to know when I am working, by being able to see all of the shifts assigned to me. (GET /shifts)
 - [X] As an employee, I want to know who I am working with, by being able to see the employees that are working during the same time period as me. (GET /shifts/*shiftid*)
 - [X] As an employee, I want to know how much I worked, by being able to get a summary of hours worked for each week. (GET /shifts/summary/*date*)
-This request shows details about the last week, current week and next week. I wasn't sure about exact functionality expected.
 - [X] As an employee, I want to be able to contact my managers, by seeing manager contact information for my shifts. (GET /shifts/*shiftid*)
 - [X] As a manager, I want to schedule my employees, by creating shifts for any employee. (POST/PUT /shifts)
 - [X] As a manager, I want to see the schedule, by listing shifts within a specific time period. (GET /shifts/search/date/*starttime*/*endtime*)
