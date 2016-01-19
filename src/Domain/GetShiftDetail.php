@@ -50,7 +50,7 @@ class GetShiftDetail implements DomainInterface
                 'error' => 'Requested shift does not exist',
             ]);
         }
-        //echo 'Manager ID:'.$shift->getManagerId();
+
         $manager = $this->userMapper->find($shift->getManagerId());
         $output['manager_info'] = [
             'id' => $manager->getId(),
