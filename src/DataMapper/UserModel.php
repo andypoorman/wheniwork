@@ -16,7 +16,7 @@ class UserModel extends ModelAbstract
 
     protected $createdAt;
 
-    protected $uploadedAt;
+    protected $updatedAt;
 
     protected $token;
 
@@ -76,11 +76,11 @@ class UserModel extends ModelAbstract
 
     /**
      *
-     * @return the $uploadedAt
+     * @return the $updatedAt
      */
-    public function getUploadedAt()
+    public function getUpdatedAt()
     {
-        return $this->uploadedAt;
+        return $this->updatedAt;
     }
 
     /**
