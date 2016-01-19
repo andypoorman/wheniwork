@@ -32,7 +32,7 @@ class ShiftMapper extends MapperAbstract
 
         $shifts = [];
         foreach ($query as $row) {
-            $shifts[] = $this->populate(new ShiftModel(), $row);
+            $shifts[] = $this->populate($this->create(), $row);
         }
         return $shifts;
     }
@@ -125,7 +125,7 @@ class ShiftMapper extends MapperAbstract
 
         $row = $query->fetch();
         if ($row) {
-            return $this->populate(new ShiftModel(), $row);
+            return $this->populate($this->create(), $row);
         }
         return false;
     }
