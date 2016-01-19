@@ -23,12 +23,12 @@ class DataMapperConfiguration implements ConfigurationInterface
                 ':fpdo' => $injector->make('FluentPDO'),
             ]
         );
-        
+
         $injector->define(
             'ShiftMapper',
             [
                 ':fpdo' => $injector->make('FluentPDO'),
             ]
-            );
+        );
     }
 }
