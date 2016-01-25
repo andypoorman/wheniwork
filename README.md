@@ -1,3 +1,7 @@
+## What is this?
+
+This is my attempt at the REST Scheduler API project here: https://github.com/wheniwork/standards/blob/master/project.md
+
 ## User stories
 
 **Please note that this not intended to be a CRUD application.** Only the functionality described by the user stories should be exposed via the API.
